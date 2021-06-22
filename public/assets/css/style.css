@@ -1,0 +1,96 @@
+*{
+    font-family: 'Comic sans MS'
+}
+h1{
+    margin-top: 15px;
+    font-size: 30px;
+    text-align: center
+}
+
+/* Navbar */
+nav{
+    background-color: #008b8b;
+    box-shadow: #899797 2px 7px 7px 0px;
+}
+nav ul{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+nav a{
+    text-decoration: none;
+    color: #f3f3f3;
+}
+nav ul li{
+    list-style: none;
+    padding: 9px;
+}
+.btn-login{
+    margin-left: auto;
+    margin-right: 20px;
+}
+nav ul li:hover{
+    background-color: #00bbbb;
+}
+/* End navbar */
+section{
+    padding-top: 0;
+    border-radius: 5px;
+    margin: 3px;
+    background-color: #f3f3f3;
+    box-shadow: #899797 0px 7px 7px 0px;
+}
+section h2{
+    background-color: #00bbbb;
+    padding: 15px;
+    color: #f3f3f3;
+}
+.container{
+    padding: 9px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 35px;
+}
+.item{
+    border: 3px solid #00000093;
+    width: 300px;
+    height: 270px;
+    padding: 3px;
+    margin: 7px;
+}
+.item:hover{
+    background-color: #00bbbb;
+    color: #f3f3f3;
+}
+.item h4{
+    margin: 8px;
+}
+.content{
+    width: 290px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+.content div p {
+    font-size: 14px;
+    margin-top: 0;
+}
+.content div {
+    margin: 4px;
+}
+
+footer{
+    background-color: #008b8b;
+    color: #fff;
+    font-size: 12px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 9px;
+}
+footer p{
+    margin-left: 15px;
+    margin-bottom: auto;
+}

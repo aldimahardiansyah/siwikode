@@ -1,0 +1,17 @@
+.kata {
+    text-align: left;
+    margin-top: 30px;
+    background-color: #00bbbb;
+    padding: 15px;
+    color: #f3f3f3;
+}
+
+.breadcrumb {
+    text-decoration: none;
+}
+.paragraph{
+    text-align: justify;
+}
+.judul_testimoni {
+    margin-left: 25px;
+}

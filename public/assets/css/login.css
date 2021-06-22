@@ -1,0 +1,62 @@
+.lgn{
+  max-width: 400px;
+  margin: 0 auto;
+  animation: jackInTheBox;
+  animation-duration: 2s;
+}
+.login-box{
+  padding: 40px 20px;
+  margin-top: 25%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.login-box h4{
+  color: #666;
+}
+.login-box form{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 20px;
+}
+.login-box form .input{
+  padding: 20px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 9px;
+  place-items: center;
+  text-align: center;
+}
+.username{
+  margin-bottom: 10px;
+}
+.tombol{
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 768px){
+  .lgn{
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  .login-box{
+    padding: 20px 10px;
+    margin-top: 30%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+  }
+  input{
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: none;
+    border-radius: 9px;
+    place-items: center;
+    text-align: center;
+  }
+}
