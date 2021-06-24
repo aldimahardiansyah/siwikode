@@ -6,7 +6,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
+                <li class="nav-item <?= activate_menu('home') ?>">
                     <a class="nav-link" href="<?= base_url('index.php') ?>">Home </a>
                 </li>
 
@@ -25,11 +25,11 @@
                 <?php 
                 if($this->session->userdata('status') == 'login'){
                 ?>
-                <li class="nav-item">
+                <li class="nav-item <?= activate_menu('admin') ?>">
                     <a class="nav-link" href="<?= base_url('index.php/admin') ?>">Admin</a>
                 </li><?php } ?>
 
-                <li class="nav-item">
+                <li class="nav-item <?= activate_menu('kelompok') ?>">
                     <a class="nav-link" href="<?= base_url('index.php/kelompok') ?>">Kelompok</a>
                 </li>
             </ul>
