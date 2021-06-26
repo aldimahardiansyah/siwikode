@@ -1,36 +1,42 @@
 <?php
-class Wisata extends CI_Controller{
-    function __construct(){
+class Wisata extends CI_Controller
+{
+    function __construct()
+    {
         parent::__construct();
         $this->load->model('wisata_model');
         //load Helper for Form
-        $this->load->helper('url', 'form'); 
+        $this->load->helper('url', 'form');
         $this->load->library('form_validation');
     }
 
-    public function index($jenis){
-        switch($jenis){
+    public function index($jenis)
+    {
+        switch ($jenis) {
             case 'rekreasi':
                 $data = [
                     "content" => "content/daftar-wisata",
-                    'jenis' => 'Rekreasi'
+                    'jenis' => 'Rekreasi',
+                    'activate_rekreasi' => 'active'
                 ];
                 $this->load->view('_partials/view', $data);
-            break;
+                break;
             case 'kuliner':
                 $data = [
                     "content" => "content/daftar-wisata",
-                    'jenis' => 'Kuliner'
+                    'jenis' => 'Kuliner',
+                    'activate_kuliner' => 'active'
                 ];
                 $this->load->view('_partials/view', $data);
-            break;
+                break;
         }
     }
-    public function detailWisata($id){
+    public function detailWisata($id)
+    {
         $wisata = $this->wisata_model->getId('wisata', $id);
-        $gambar = $this->wisata_model->gambar('SELECT nama FROM gambar WHERE wisata_id='.$id);
+        $gambar = $this->wisata_model->gambar('SELECT nama FROM gambar WHERE wisata_id=' . $id);
 
-        $data = [ 
+        $data = [
             "wisata" => $wisata,
             "content" => 'content/detail_wisata',
             'gambar' => $gambar
@@ -38,22 +44,25 @@ class Wisata extends CI_Controller{
         $this->load->view('_partials/view', $data);
     }
 
-    public function create(){
+    public function create()
+    {
         $this->load->model('wisata_model');
         $jenis = $this->wisata_model->getAll('jenis_wisata');
 
         $data = [
             "content" => 'content/registrasi_wisata',
-            "jenis" => $jenis
+            "jenis" => $jenis,
+            'activate_registrasi' => 'active'
         ];
         $this->load->view('_partials/view', $data);
     }
 
-    public function restore(){
+    public function restore()
+    {
         $this->load->model('wisata_model');
-        
+
         // ambil data form
-        $id = $this->wisata_model->query('SELECT MAX(id) as id FROM wisata')->id+=1;
+        $id = $this->wisata_model->query('SELECT MAX(id) as id FROM wisata')->id += 1;
         $nama = $this->input->post('nama');
         $jenis = $this->input->post('jenis');
         $deskripsi = $this->input->post('desk');
@@ -84,10 +93,10 @@ class Wisata extends CI_Controller{
         $config['max_size'] = 2048;
 
         $this->load->library('upload', $config);
-        for($i=1; $i <= 6; $i++){
-            if (!$this->upload->do_upload('foto'.$i)){
+        for ($i = 1; $i <= 6; $i++) {
+            if (!$this->upload->do_upload('foto' . $i)) {
                 $jenis = $this->wisata_model->getAll('jenis_wisata');
-    
+
                 $data = [
                     "content" => 'content/registrasi_wisata',
                     "jenis" => $jenis,
@@ -96,19 +105,16 @@ class Wisata extends CI_Controller{
                 ];
                 $this->load->view('_partials/view', $data);
                 break;
-            }
-            else{
+            } else {
                 $this->wisata_model->save('gambar', [
-                    'id' => 'default', 
-                    'nama' => $this->upload->data()["file_name"], 
+                    'id' => 'default',
+                    'nama' => $this->upload->data()["file_name"],
                     'wisata_id' => $id
                 ]);
-                if($i==6){
-                    redirect('wisata/detailWisata/'.$id);
+                if ($i == 6) {
+                    redirect('wisata/detailWisata/' . $id);
                 }
             }
-
         }
-            
     }
 }
