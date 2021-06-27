@@ -13,15 +13,7 @@ else{
                         <span style="font-size: 5rem;" class="fa fa-tasks fa-lg"></span>
                     </a>
                     <br>
-                    <a href="admin/admin_kuliner.html">Kelola Data Wisata Kuliner</a>
-                </div>
-
-                <div class="d-flex align-items-center" style="display: flex; flex-direction: column; margin: 20px;">
-                    <a href="admin/admin_rekreasi.html">
-                        <span style="font-size: 5rem;" class="fa fa-tasks fa-lg"></span>
-                    </a>
-                    <br>
-                    <a href="admin/admin_rekreasi.html">Kelola Data Wisata Rekreasi</a>
+                    <a href="<?php base_url('index.php/kelola_data_wisata' ?>">Kelola Data Wisata</a>
                 </div>
 
                 <div class="d-flex align-items-center" style="display: flex; flex-direction: column; margin: 20px;">
