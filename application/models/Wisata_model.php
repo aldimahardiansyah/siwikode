@@ -1,25 +1,36 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Wisata_model extends CI_Model {
+class Wisata_model extends CI_Model
+{
 
-    public function getAll($table){
-        return $this->db->get($table)->result_array(); 
+    public function getAll($table)
+    {
+        return $this->db->get($table)->result_array();
     }
 
-    public function getId($table, $id){
+    public function getId($table, $id)
+    {
         return $this->db->get_Where($table, ['id' => $id])->row();
     }
 
-    public function save($table, $data){
+    public function save($table, $data)
+    {
         return $this->db->insert($table, $data);
     }
 
-    public function query($query){
+    public function query($query)
+    {
         return $this->db->query($query)->row();
     }
 
-    public function gambar($query){
+    public function unggulan()
+    {
+        return $this->db->query('SELECT * FROM wisata ORDER BY bintang DESC LIMIT 3;')->result();
+    }
+
+    public function gambar($query)
+    {
         return $this->db->query($query)->result_array();
     }
 }
