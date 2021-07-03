@@ -7,8 +7,7 @@
         <?php
         foreach ($unggulan as $wisata) {
             $gambar = $this->wisata_model->query('select nama from gambar where wisata_id=' . $wisata->id);
-            $deskripsi = $this->wisata_model->query('select left(deskripsi, 100) from wisata where id=' . $wisata->id);
-            var_dump($deskripsi);
+            $deskripsi = $this->wisata_model->query('select left(deskripsi, 210) as deskripsi from wisata where id=' . $wisata->id);
         ?>
         <div class="item">
             <h4><?= $wisata->nama ?></h4>

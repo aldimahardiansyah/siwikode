@@ -22,11 +22,11 @@ if (!isset($activate_registrasi)) {
             </li>
 
             <li class="nav-item <?= $activate_rekreasi ?>">
-                <a class="nav-link" href="<?= base_url('index.php/wisata/index/rekreasi') ?>">Wisata Rekreasi</a>
+                <a class="nav-link" href="<?= base_url('index.php/wisata/rekreasi') ?>">Wisata Rekreasi</a>
             </li>
 
             <li class="nav-item <?= $activate_kuliner ?>">
-                <a class="nav-link" href="<?= base_url('index.php/wisata/index/kuliner') ?>">Wisata Kuliner</a>
+                <a class="nav-link" href="<?= base_url('index.php/wisata/kuliner') ?>">Wisata Kuliner</a>
             </li>
 
             <li class="nav-item <?= $activate_registrasi ?>">

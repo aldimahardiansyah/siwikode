@@ -10,27 +10,34 @@ class Wisata extends CI_Controller
         $this->load->library('form_validation');
     }
 
-    public function index($jenis)
+    public function rekreasi()
     {
-        switch ($jenis) {
-            case 'rekreasi':
-                $data = [
-                    "content" => "content/daftar-wisata",
-                    'jenis' => 'Rekreasi',
-                    'activate_rekreasi' => 'active'
-                ];
-                $this->load->view('_partials/view', $data);
-                break;
-            case 'kuliner':
-                $data = [
-                    "content" => "content/daftar-wisata",
-                    'jenis' => 'Kuliner',
-                    'activate_kuliner' => 'active'
-                ];
-                $this->load->view('_partials/view', $data);
-                break;
-        }
+        $first_content = $this->wisata_model->query('select * from wisata where jenis_wisata_id =6');
+        $first_gambar = $this->wisata_model->query('select nama from gambar where wisata_id =' . $first_content->id);
+        $data = [
+            "content" => "content/daftar-wisata",
+            'jenis' => 6,
+            'activate_rekreasi' => 'active',
+            'first_content' => $first_content,
+            'first_gambar' => $first_gambar
+        ];
+        $this->load->view('_partials/view', $data);
     }
+
+    public function kuliner()
+    {
+        $first_content = $this->wisata_model->query('select * from wisata where jenis_wisata_id =2');
+        $first_gambar = $this->wisata_model->query('select nama from gambar where wisata_id =' . $first_content->id);
+        $data = [
+            "content" => "content/daftar-wisata",
+            'jenis' => 2,
+            'activate_kuliner' => 'active',
+            'first_content' => $first_content,
+            'first_gambar' => $first_gambar
+        ];
+        $this->load->view('_partials/view', $data);
+    }
+
     public function detailWisata($id)
     {
         $wisata = $this->wisata_model->getId('wisata', $id);
