@@ -16,11 +16,11 @@ if ($this->session->userdata('status') != 'login') {
             </div>
 
             <div class="d-flex align-items-center" style="display: flex; flex-direction: column; margin: 20px;">
-                <a href="admin/testimoni.html">
+                <a href="<?= base_url('index.php/testimoni') ?>">
                     <span style="font-size: 5rem;" class="fa fa-comment fa-lg"></span>
                 </a>
                 <br>
-                <a href="admin/testimoni.html">Kelola Data Testimoni Tempat Wisata</a>
+                <a href="<?= base_url('index.php/testimoni') ?>">Kelola Data Testimoni Tempat Wisata</a>
             </div>
         </div>
     </div>

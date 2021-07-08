@@ -33,4 +33,27 @@ class Wisata_model extends CI_Model
     {
         return $this->db->query($query)->result_array();
     }
+
+    public function many_query($query)
+    {
+        return $this->db->query($query)->result();
+    }
+
+    public function delete($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('wisata');
+    }
+
+    public function delete_gambar($id)
+    {
+        $this->db->where('wisata_id', $id);
+        $this->db->delete('gambar');
+    }
+
+    public function update($id, $table, $data)
+    {
+        $this->db->where('id', $id);
+        $this->db->update($table, $data);
+    }
 }
