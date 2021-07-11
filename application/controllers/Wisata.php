@@ -46,7 +46,7 @@ class Wisata extends CI_Controller
     {
         $wisata = $this->wisata_model->getId('wisata', $id);
         $gambar = $this->wisata_model->gambar('SELECT nama FROM gambar WHERE wisata_id=' . $id);
-        $testi = $this->wisata_model->many_query('SELECT testimoni.*, profesi.`nama` AS profesi FROM testimoni INNER JOIN profesi ON testimoni.`profesi_id` = profesi.`id` LIMIT 3');
+        $testi = $this->wisata_model->many_query('SELECT testimoni.*, profesi.`nama` AS profesi FROM testimoni INNER JOIN profesi ON testimoni.`profesi_id` = profesi.`id` where wisata_id =' . $id . ' limit 3');
 
         $data = [
             "wisata" => $wisata,
